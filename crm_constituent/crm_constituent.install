@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implementation of hook_install().
+ */
+function crm_constituent_install() {
+  // Intentionally blank.
+  db_query("UPDATE {system} SET weight = 10 WHERE name = 'crm_constituent'");
+}
+
+function crm_constituent_update_6001(&$sandbox) {
+  $ret = array();
+
+  module_enable('content_multigroup');
+
+  db_query("UPDATE {system} SET weight = 10 WHERE name = 'crm_constituent'");
+
+  return $ret;
+}

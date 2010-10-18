@@ -1,0 +1,23 @@
+<?php
+
+include_once('crm_notes.features.inc');
+
+/**
+ * Find all the notes associated with a given constituent nid.
+ *
+ * @param  $nid The constituent node id.
+ * @return array An array of nids.
+ */
+function crm_notes_load_notes($nid) {
+  $field = content_fields('field_constituent_reference');
+  $db_info = content_database_info($field);
+  $nids = array();
+
+  $query = "SELECT fcr.nid FROM {{$db_info['table']}} fcr LEFT JOIN {node} n ON n.nid = fcr.nid WHERE fcr.{$db_info['columns']['nid']['column']} = %d AND n.type = 'notes'";
+  $result = db_query($query, $nid);
+  while ($row = db_fetch_object($result)) {
+    $nids[] = $row->nid;
+  }
+
+  return $nids;
+}

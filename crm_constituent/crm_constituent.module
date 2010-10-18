@@ -1,0 +1,103 @@
+<?php
+
+include_once('crm_constituent.features.inc');
+
+
+/**
+ * Implementation of hook_user().
+ */
+function crm_constituent_user($op, &$edit, &$account, $category = NULL) {
+  // New account, we need to update it
+  if ($op == 'insert') {
+    module_load_include('inc', 'node', 'node.pages');
+    $node = new stdClass();
+    $node->type = 'constituent';
+    node_object_prepare($node);
+
+    $node->field_constituent_first_name[0]['value'] = $account->name;
+    $node->field_constituent_account[0]['uid'] = $account->uid;
+    $node->field_constituent_email[0]['email'] = $account->mail;
+    $node->field_constituent_source[0]['value'] = 4; // Website
+    $node->field_constituent_reg_date[0]['value'] = date('Y-m-d\T00:00:00', $account->created);
+    node_save($node);
+  }
+
+  if ($op == 'update') {
+    if ($record = crm_constituent_load($account->uid)) {
+      crm_constituent_sync_account($record, $account);
+    }
+    else {
+      // No record exists, create one
+      $edit = array();
+      crm_constituent_user('insert', $edit, $account);
+    }
+  }
+}
+
+
+/**
+ * Helper function to find a constituent record for a given user account.
+ *
+ * @param <type> $uid
+ */
+function crm_constituent_load($uid) {
+  $field = content_fields('field_constituent_account');
+  $db_info = content_database_info($field);
+  $query = "SELECT n.nid FROM {{$db_info['table']}} ctc JOIN {node} n ON n.vid = ctc.vid WHERE ctc.{$db_info['columns']['uid']['column']} = %d AND ctc.nid = n.nid;";
+  if ($nid = db_result(db_query($query, $uid))) {
+    $node = node_load(array('nid' => $nid));
+    return $node;
+  }
+  return FALSE;
+}
+
+/**
+ * Sync information from a user account into a constituent record.
+ */
+function crm_constituent_sync_account($node, $account) {
+  $found = FALSE;
+  foreach ($node->field_constituent_email as $row) {
+    if ($row['email'] == $account->mail) {
+      $found = TRUE;
+      break;
+    }
+  }
+  if ($found == FALSE) {
+    $node->field_constituent_email[]['email'] = $account->mail;
+    node_save($node);
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function crm_constituent_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if ($node->type == 'constituent') {
+    switch ($op) {
+      case 'delete':
+        $nids = array();
+        if (module_exists('crm_notes')) {
+          $nids = array_merge(crm_notes_load_notes($node->nid), $nids);
+        }
+        if (module_exists('crm_participant')) {
+          $nids = array_merge(crm_participant_load_records($node->nid), $nids);
+        }
+        if (module_exists('crm_facilitator')) {
+          $nids = array_merge(crm_facilitator_load_records($node->nid), $nids);
+        }
+        foreach ($nids as $nid) {
+          node_delete($nid);
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function crm_constituent_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'constituent_node_form') {
+    drupal_add_css(drupal_get_path('module', 'crm_constituent') .'/crm_constituent_node_form.css', 'theme');
+  }
+}

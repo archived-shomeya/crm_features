@@ -1,0 +1,3 @@
+<?php
+
+include_once('crm_organization.features.inc');

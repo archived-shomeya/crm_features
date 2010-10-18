@@ -1,0 +1,82 @@
+td.content-multiple-drag {
+    display: none;
+}
+
+.group-phone .form-item label,
+.group-email .form-item label {
+    display: none;
+}
+
+.group-address td .fieldset input {
+    width: 30em;
+}
+
+.group-address td .fieldset #autocomplete {
+    margin-left: 10em;
+}
+
+.group-address td .fieldset {
+    float: left;
+    width: 80%;
+    margin-right: 2em;
+}
+
+.group-phone td .form-text,
+.group-email td .form-text {
+    float: left;
+    width: 50%;
+    margin-right: 2em;
+}
+
+.group-address td .form-select,
+.group-phone td .form-select,
+.group-email td .form-select {
+    float: left;
+}
+
+.crm-field-row {
+    margin-bottom: 2em;
+}
+
+.crm-field-row .form-item {
+    padding: 0;
+    background: none;
+    border: none;
+    margin:0;
+}
+
+.crm-field-row .form-item .form-text {
+    float:left;
+    width: 300px;    
+}
+
+
+.crm-field-row .crm-fields-item-label {
+    float: left;
+    width: 100px;
+}
+
+.crm-field-row .crm-fields-item-default {
+    float: left;
+    margin-right: 1em;
+    /*display:none;*/
+}
+
+.crm-field-row:hover .crm-fields-item-default {
+    /*display:block;*/
+}
+
+.crm-field-row .form-item label {
+    float: left;
+    margin-right: 1em;
+}
+
+.crm-field-row .crm-fields-item-add-another {
+    clear: both;
+    padding-top:1em;
+}
+
+.crm-field-row {
+    clear:both;
+    padding-bottom:1em;
+}

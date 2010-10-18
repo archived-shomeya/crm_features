@@ -1,0 +1,148 @@
+<?php
+// $Id$
+
+include_once('crm_admin.features.inc');
+
+/**
+ * @file
+ * Administrative views and panels for the CRM
+ * @author Michael Prasuhn <mike@shomeya.com>
+ * @link http://shomeya.com
+ * @package crm_admin
+ */
+
+/* -----------------------------------------------------------------
+
+  Hook Implementations
+
+------------------------------------------------------------------ */
+
+/**
+ * Implementation of hook_perm().
+ */
+function crm_admin_perm() {
+  return array('access crm home');
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function crm_admin_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks['create_constituent_block'] = array(
+      'info' => t('Create constituent block'),
+      'cache' => BLOCK_CACHE_GLOBAL,
+    );
+    return $blocks;
+  }
+  else if ($op == 'view') {
+    switch ($delta) {
+      case 'create_constituent_block':
+        dialog_add_js();
+        $links = array();
+        $links[] = l(t('Add new consituent'), 'node/add/constituent');
+
+        return array(
+          'subject' => t('Title of block #1'),
+          'content' => theme('item_list', $links),
+        );
+        break;
+
+    }
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function crm_admin_nodeapi(&$node, $op, $a3, $a4) {
+  $types = array('constituent', 'organization', 'notes', 'facilitator', 'participant');
+  if ($op == 'load' && in_array($node->type, $types)) {
+    global $custom_theme;
+    $custom_theme = variable_get('admin_theme', '0');
+    drupal_add_css(drupal_get_path('module', 'system') .'/admin.css', 'module');
+  }
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function crm_init() {
+  // Add admin CSS
+  $router_item = menu_get_item();
+  $admin_paths = array('admin/crm/reports');
+  if (in_array($router_item['path'], $admin_paths)) {
+    drupal_add_css(drupal_get_path('module', 'crm_admin') .'/crm_admin.css', 'theme');
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function crm_admin_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_exposed_form' && $form['#parameters'][1]['view']->name == 'constituent_report_basic') {
+//    dsm($form);
+    $form['filters'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Filters'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#weight' => -10,
+    );
+    $form['filters']['field_constituent_first_name_value'] = $form['field_constituent_first_name_value'];
+    $form['filters']['field_constituent_first_name_value']['#title'] = t('First Name');
+    unset($form['field_constituent_first_name_value']);
+
+    $form['filters']['field_constituent_last_name_value'] = $form['field_constituent_last_name_value'];
+    $form['filters']['field_constituent_last_name_value']['#title'] = t('Last Name');
+    unset($form['field_constituent_last_name_value']);
+
+    $form['filters']['field_constituent_email_email'] = $form['field_constituent_email_email'];
+    $form['filters']['field_constituent_email_email']['#title'] = t('Email');
+    unset($form['field_constituent_email_email']);
+
+    $form['filters']['field_constituent_phone_value'] = $form['field_constituent_phone_value'];
+    $form['filters']['field_constituent_phone_value']['#title'] = t('Phone');
+    unset($form['field_constituent_phone_value']);
+
+    $form['filters']['field_constituent_source_value_many_to_one'] = $form['field_constituent_source_value_many_to_one'];
+    $form['filters']['field_constituent_source_value_many_to_one']['#title'] = t('Source');
+    unset($form['field_constituent_source_value_many_to_one']);
+
+    $form['filters']['field_facilitator_certification_value_many_to_one'] = $form['field_facilitator_certification_value_many_to_one'];
+    $form['filters']['field_facilitator_certification_value_many_to_one']['#title'] = t('Facilitator certification');
+    unset($form['field_facilitator_certification_value_many_to_one']);
+
+    $form['filters']['field_participant_phases_value_many_to_one'] = $form['field_participant_phases_value_many_to_one'];
+    $form['filters']['field_participant_phases_value_many_to_one']['#title'] = t('Participant phase completed');
+    unset($form['field_participant_phases_value_many_to_one']);
+
+    $form['filters']['date_filter'] = $form['date_filter'];
+    $form['filters']['date_filter']['#title'] = t('Registration date');
+    unset($form['date_filter']);
+
+    $form['filters']['field_participant_status_value_many_to_one'] = $form['field_participant_status_value_many_to_one'];
+    $form['filters']['field_participant_status_value_many_to_one']['#title'] = t('Participant status');
+    unset($form['field_participant_status_value_many_to_one']);
+
+    $form['filters']['postal_code'] = $form['postal_code'];
+    $form['filters']['postal_code']['#title'] = t('Zip code');
+    unset($form['postal_code']);
+
+    $form['filters']['province'] = $form['province'];
+    $form['filters']['province']['#title'] = t('State/province');
+    unset($form['province']);
+
+    $form['fields'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Fields'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#weight' => -10,
+    );
+
+    $form['fields']['dyfield'] = $form['dyfield'];
+    $form['fields']['dyfield']['#title'] = t('Show these fields');
+    unset($form['dyfield']);
+  }
+}

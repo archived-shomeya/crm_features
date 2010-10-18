@@ -1,0 +1,23 @@
+
+.views-exposed-form .views-exposed-widget {
+    padding: 0;
+    float:none;
+}
+
+.views-exposed-widgets {
+    margin-left:20px;
+}
+
+.views-exposed-widget label {
+    display: none;
+}
+
+.views-exposed-widget .fieldset label {
+    display: block;
+}
+
+.views-exposed-widget .date-views-filter-wrapper .date-clear {
+    height: 6em;
+    clear: both;
+    display: block;
+}
