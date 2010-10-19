@@ -18,13 +18,6 @@ include_once('crm_admin.features.inc');
 ------------------------------------------------------------------ */
 
 /**
- * Implementation of hook_perm().
- */
-function crm_admin_perm() {
-  return array('access crm home');
-}
-
-/**
  * Implementation of hook_block().
  */
 function crm_admin_block($op = 'list', $delta = 0, $edit = array()) {

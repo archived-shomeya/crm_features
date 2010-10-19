@@ -9,15 +9,15 @@ function crm_admin_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'crm_home';
   $page->task = 'page';
-  $page->admin_title = 'CRM Home';
+  $page->admin_title = 'CRM Dashboard';
   $page->admin_description = '';
-  $page->path = 'admin/crm/home';
+  $page->path = 'admin/crm/dashboard';
   $page->access = array(
     'plugins' => array(
       0 => array(
         'name' => 'perm',
         'settings' => array(
-          'perm' => 'access crm home',
+          'perm' => 'access crm',
         ),
         'context' => 'logged-in-user',
         'not' => FALSE,
@@ -26,8 +26,8 @@ function crm_admin_default_page_manager_pages() {
     'logic' => 'and',
   );
   $page->menu = array(
-    'type' => 'default tab',
-    'title' => 'CRM',
+    'type' => 'normal',
+    'title' => 'CRM Dashboard',
     'name' => 'navigation',
     'weight' => '0',
     'parent' => array(
@@ -69,7 +69,7 @@ function crm_admin_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'CRM home';
+  $display->title = 'CRM Dashboard';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
@@ -148,7 +148,7 @@ function crm_admin_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'crm_reports';
   $page->task = 'page';
-  $page->admin_title = 'CRM Reports landing page';
+  $page->admin_title = 'CRM Reports';
   $page->admin_description = '';
   $page->path = 'admin/crm/reports';
   $page->access = array(
@@ -156,17 +156,19 @@ function crm_admin_default_page_manager_pages() {
       0 => array(
         'name' => 'perm',
         'settings' => array(
-          'perm' => 'access crm home',
+          'perm' => 'access crm',
         ),
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
-    'type' => 'tab',
-    'title' => 'Constituent reports',
+    'type' => 'normal',
+    'title' => 'CRM Reports',
     'name' => 'navigation',
     'weight' => '4',
     'parent' => array(
@@ -211,7 +213,7 @@ function crm_admin_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Constituent reports';
+  $display->title = 'CRM Reports';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
