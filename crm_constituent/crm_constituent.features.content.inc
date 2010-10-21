@@ -6,6 +6,66 @@
 function crm_constituent_content_default_fields() {
   $fields = array();
 
+  // Exported field: field_address_label
+  $fields['constituent-field_address_label'] = array(
+    'field_name' => 'field_address_label',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '1',
+    'multiple' => '1',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => 'home
+work',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => '  ',
+      'weight' => '38',
+      'description' => '',
+      'type' => 'optionwidgets_select',
+      'module' => 'optionwidgets',
+    ),
+  );
+
   // Exported field: field_constituent_account
   $fields['constituent-field_constituent_account'] = array(
     'field_name' => 'field_constituent_account',
@@ -76,7 +136,7 @@ function crm_constituent_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Drupal account',
-      'weight' => '40',
+      'weight' => '41',
       'description' => '',
       'type' => 'userreference_autocomplete',
       'module' => 'userreference',
@@ -137,7 +197,7 @@ function crm_constituent_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'E-mail',
-      'weight' => '35',
+      'weight' => '36',
       'description' => '',
       'type' => 'email_textfield',
       'module' => 'email',
@@ -642,7 +702,7 @@ function crm_constituent_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Address',
-      'weight' => '36',
+      'weight' => '37',
       'description' => '',
       'type' => 'location',
       'module' => 'location_cck',
@@ -791,7 +851,7 @@ function crm_constituent_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Phone',
-      'weight' => '37',
+      'weight' => '38',
       'description' => '',
       'type' => 'phone_textfield',
       'module' => 'phone',
@@ -866,7 +926,7 @@ function crm_constituent_content_default_fields() {
       'year_range' => '-3:+3',
       'label_position' => 'above',
       'label' => 'Registration date',
-      'weight' => '39',
+      'weight' => '40',
       'description' => '',
       'type' => 'date_popup',
       'module' => 'date',
@@ -937,7 +997,7 @@ function crm_constituent_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Source',
-      'weight' => '38',
+      'weight' => '39',
       'description' => 'How did you hear about The Ultimate Journey?',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -1002,15 +1062,139 @@ function crm_constituent_content_default_fields() {
       'default_value' => NULL,
       'default_value_php' => NULL,
       'label' => 'Additional tags',
-      'weight' => '41',
+      'weight' => '42',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
     ),
   );
 
+  // Exported field: field_email_label
+  $fields['constituent-field_email_label'] = array(
+    'field_name' => 'field_email_label',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '1',
+    'multiple' => '1',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => 'personal
+work',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => '  ',
+      'weight' => '37',
+      'description' => '',
+      'type' => 'optionwidgets_select',
+      'module' => 'optionwidgets',
+    ),
+  );
+
+  // Exported field: field_phone_label
+  $fields['constituent-field_phone_label'] = array(
+    'field_name' => 'field_phone_label',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '1',
+    'multiple' => '1',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => 'home
+work
+cell
+fax
+pager',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => '  ',
+      'weight' => '39',
+      'description' => '',
+      'type' => 'optionwidgets_select',
+      'module' => 'optionwidgets',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('  ');
   t('Additional tags');
   t('Address');
   t('Drupal account');
