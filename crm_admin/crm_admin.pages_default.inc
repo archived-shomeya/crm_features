@@ -202,7 +202,7 @@ function crm_admin_default_page_manager_pages() {
   );
   $display = new panels_display;
   $display->api_version = 1;
-  $display->layout = 'onecol';
+  $display->layout = 'twocol';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -218,6 +218,30 @@ function crm_admin_default_page_manager_pages() {
   $display->title = 'CRM Reports';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'saved_reports-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'view_name' => 'constituent_report_basic',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Constituent Reports',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
