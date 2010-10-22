@@ -985,6 +985,7 @@ function crm_admin_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('title', 'Constituent Reports');
   $handler->override_option('empty', 'No matching constituents were found');
   $handler->override_option('empty_format', '2');
   $handler->override_option('style_plugin', 'bulk');
@@ -1084,27 +1085,6 @@ function crm_admin_views_default_views() {
       '_error_element_base' => 'style_options][views_bulk_operations_fields_action][',
     ),
   ));
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->override_option('pane_title', '');
-  $handler->override_option('pane_description', '');
-  $handler->override_option('pane_category', array(
-    'name' => 'View panes',
-    'weight' => 0,
-  ));
-  $handler->override_option('allow', array(
-    'use_pager' => 0,
-    'items_per_page' => 0,
-    'offset' => 0,
-    'link_to_view' => 0,
-    'more_link' => 0,
-    'path_override' => 0,
-    'title_override' => 0,
-    'exposed_form' => 0,
-    'fields_override' => 0,
-  ));
-  $handler->override_option('argument_input', array());
-  $handler->override_option('link_to_view', 0);
-  $handler->override_option('inherit_panels_path', '1');
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
   $handler->override_option('style_plugin', 'views_xls');
   $handler->override_option('style_options', array(
@@ -1133,9 +1113,26 @@ function crm_admin_views_default_views() {
   ));
   $handler->override_option('displays', array(
     'default' => 'default',
-    'panel_pane_1' => 'panel_pane_1',
+    'page_1' => 'page_1',
+    'panel_pane_1' => 0,
   ));
   $handler->override_option('sitename_title', FALSE);
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->override_option('path', 'admin/crm/reports/constituent');
+  $handler->override_option('menu', array(
+    'type' => 'normal',
+    'title' => 'Constituent Reports',
+    'description' => '',
+    'weight' => '0',
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
 
   $views[$view->name] = $view;
 
