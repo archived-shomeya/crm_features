@@ -74,68 +74,6 @@ function crm_init() {
  */
 function crm_admin_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form' && $form['#parameters'][1]['view']->name == 'constituent_report_basic') {
-//    dsm($form);
-    $form['filters'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Filters'),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-      '#weight' => -10,
-    );
-    $form['filters']['field_constituent_first_name_value'] = $form['field_constituent_first_name_value'];
-    $form['filters']['field_constituent_first_name_value']['#title'] = t('First Name');
-    unset($form['field_constituent_first_name_value']);
 
-    $form['filters']['field_constituent_last_name_value'] = $form['field_constituent_last_name_value'];
-    $form['filters']['field_constituent_last_name_value']['#title'] = t('Last Name');
-    unset($form['field_constituent_last_name_value']);
-
-    $form['filters']['field_constituent_email_email'] = $form['field_constituent_email_email'];
-    $form['filters']['field_constituent_email_email']['#title'] = t('Email');
-    unset($form['field_constituent_email_email']);
-
-    $form['filters']['field_constituent_phone_value'] = $form['field_constituent_phone_value'];
-    $form['filters']['field_constituent_phone_value']['#title'] = t('Phone');
-    unset($form['field_constituent_phone_value']);
-
-    $form['filters']['field_constituent_source_value_many_to_one'] = $form['field_constituent_source_value_many_to_one'];
-    $form['filters']['field_constituent_source_value_many_to_one']['#title'] = t('Source');
-    unset($form['field_constituent_source_value_many_to_one']);
-
-    $form['filters']['field_facilitator_certification_value_many_to_one'] = $form['field_facilitator_certification_value_many_to_one'];
-    $form['filters']['field_facilitator_certification_value_many_to_one']['#title'] = t('Facilitator certification');
-    unset($form['field_facilitator_certification_value_many_to_one']);
-
-    $form['filters']['field_participant_phases_value_many_to_one'] = $form['field_participant_phases_value_many_to_one'];
-    $form['filters']['field_participant_phases_value_many_to_one']['#title'] = t('Participant phase completed');
-    unset($form['field_participant_phases_value_many_to_one']);
-
-    $form['filters']['date_filter'] = $form['date_filter'];
-    $form['filters']['date_filter']['#title'] = t('Registration date');
-    unset($form['date_filter']);
-
-    $form['filters']['field_participant_status_value_many_to_one'] = $form['field_participant_status_value_many_to_one'];
-    $form['filters']['field_participant_status_value_many_to_one']['#title'] = t('Participant status');
-    unset($form['field_participant_status_value_many_to_one']);
-
-    $form['filters']['postal_code'] = $form['postal_code'];
-    $form['filters']['postal_code']['#title'] = t('Zip code');
-    unset($form['postal_code']);
-
-    $form['filters']['province'] = $form['province'];
-    $form['filters']['province']['#title'] = t('State/province');
-    unset($form['province']);
-
-    $form['fields'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Fields'),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-      '#weight' => -10,
-    );
-
-    $form['fields']['dyfield'] = $form['dyfield'];
-    $form['fields']['dyfield']['#title'] = t('Show these fields');
-    unset($form['dyfield']);
   }
 }
