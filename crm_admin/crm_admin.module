@@ -65,7 +65,7 @@ function crm_init() {
   $router_item = menu_get_item();
   $admin_paths = array('admin/crm/reports');
   if (in_array($router_item['path'], $admin_paths)) {
-    drupal_add_css(drupal_get_path('module', 'crm_admin') .'/crm_admin.css', 'theme');
+//    drupal_add_css(drupal_get_path('module', 'crm_admin') .'/crm_admin.css', 'theme');
   }
 }
 
