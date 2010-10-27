@@ -186,11 +186,11 @@ function crm_admin_default_page_manager_pages() {
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_crm_reports_panel_context';
+  $handler->name = 'page_crm_reports_panel_context_2';
   $handler->task = 'page';
   $handler->subtask = 'crm_reports';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = 1;
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 1,
@@ -222,6 +222,31 @@ function crm_admin_default_page_manager_pages() {
     $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Constituent Reports',
+      'body' => '<a href="admin/crm/reports/constituent">Run new constituent report</a>',
+      'format' => '3',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'block',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-2';
+    $pane->panel = 'left';
     $pane->type = 'views_panes';
     $pane->subtype = 'saved_reports-panel_pane_1';
     $pane->shown = TRUE;
@@ -231,17 +256,18 @@ function crm_admin_default_page_manager_pages() {
         'view_name' => 'constituent_report_basic',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Constituent Reports',
+      'override_title_text' => 'Saved Constituent Reports',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'block',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
