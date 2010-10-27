@@ -1193,7 +1193,7 @@ function crm_admin_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'admin/crm/reports/constituent');
   $handler->override_option('menu', array(
-    'type' => 'none',
+    'type' => 'normal',
     'title' => 'Constituent Reports',
     'description' => '',
     'weight' => '0',
