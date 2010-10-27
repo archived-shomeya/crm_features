@@ -114,44 +114,6 @@ function crm_admin_views_default_views() {
       'field' => 'field_constituent_last_name_value',
       'relationship' => 'none',
     ),
-    'field_constituent_organization_nid' => array(
-      'label' => 'Organization',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'widget',
-      'format' => 'default',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_constituent_organization_nid',
-      'table' => 'node_data_field_constituent_organization',
-      'field' => 'field_constituent_organization_nid',
-      'relationship' => 'none',
-    ),
     'field_constituent_email_email' => array(
       'label' => 'E-mail',
       'alter' => array(
@@ -180,14 +142,52 @@ function crm_admin_views_default_views() {
       'format' => 'default',
       'multiple' => array(
         'group' => 1,
-        'multiple_number' => '',
-        'multiple_from' => '',
+        'multiple_number' => '1',
+        'multiple_from' => '0',
         'multiple_reversed' => 0,
       ),
       'exclude' => 0,
       'id' => 'field_constituent_email_email',
       'table' => 'node_data_field_constituent_email',
       'field' => 'field_constituent_email_email',
+      'relationship' => 'none',
+    ),
+    'field_constituent_phone_value' => array(
+      'label' => 'Phone',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'widget',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '1',
+        'multiple_from' => '0',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 0,
+      'id' => 'field_constituent_phone_value',
+      'table' => 'node_data_field_constituent_phone',
+      'field' => 'field_constituent_phone_value',
       'relationship' => 'none',
     ),
     'street' => array(
@@ -338,8 +338,8 @@ function crm_admin_views_default_views() {
       'field' => 'country',
       'relationship' => 'field_constituent_location_lid',
     ),
-    'field_constituent_phone_value' => array(
-      'label' => 'Phone',
+    'field_constituent_organization_nid' => array(
+      'label' => 'Organization',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
@@ -365,15 +365,15 @@ function crm_admin_views_default_views() {
       'label_type' => 'widget',
       'format' => 'default',
       'multiple' => array(
-        'group' => 1,
+        'group' => TRUE,
         'multiple_number' => '',
         'multiple_from' => '',
-        'multiple_reversed' => 0,
+        'multiple_reversed' => FALSE,
       ),
       'exclude' => 0,
-      'id' => 'field_constituent_phone_value',
-      'table' => 'node_data_field_constituent_phone',
-      'field' => 'field_constituent_phone_value',
+      'id' => 'field_constituent_organization_nid',
+      'table' => 'node_data_field_constituent_organization',
+      'field' => 'field_constituent_organization_nid',
       'relationship' => 'none',
     ),
     'field_constituent_source_value' => array(
@@ -456,36 +456,6 @@ function crm_admin_views_default_views() {
       'id' => 'field_constituent_reg_date_value',
       'table' => 'node_data_field_constituent_reg_date',
       'field' => 'field_constituent_reg_date_value',
-      'relationship' => 'none',
-    ),
-    'view_node' => array(
-      'label' => 'view',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'text' => '',
-      'exclude' => 0,
-      'id' => 'view_node',
-      'table' => 'node',
-      'field' => 'view_node',
       'relationship' => 'none',
     ),
     'field_participant_status_value' => array(
@@ -601,6 +571,36 @@ function crm_admin_views_default_views() {
       'table' => 'node_data_field_participant_phases',
       'field' => 'field_participant_phases_value',
       'relationship' => 'nodereferer_referers',
+    ),
+    'view_node' => array(
+      'label' => 'view',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'text' => '',
+      'exclude' => 0,
+      'id' => 'view_node',
+      'table' => 'node',
+      'field' => 'view_node',
+      'relationship' => 'none',
     ),
     'coordinates' => array(
       'label' => 'Coordinates',
@@ -903,6 +903,39 @@ function crm_admin_views_default_views() {
       'relationship' => 'nodereferer_referers',
       'reduce_duplicates' => 0,
     ),
+    'distance' => array(
+      'operator' => 'mbr',
+      'value' => array(
+        'latitude' => '',
+        'longitude' => '',
+        'postal_code' => '',
+        'country' => '',
+        'php_code' => '',
+        'nid_arg' => '',
+        'nid_loc_field' => 'node',
+        'uid_arg' => '',
+        'search_distance' => '100',
+        'search_units' => 'mile',
+      ),
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'distance_op',
+        'identifier' => 'distance',
+        'label' => 'Location: Distance / Proximity',
+        'user_location_choose' => 0,
+        'optional' => 1,
+        'remember' => 0,
+      ),
+      'identifier' => 'dist',
+      'origin' => 'postal_default',
+      'id' => 'distance',
+      'table' => 'location',
+      'field' => 'distance',
+      'relationship' => 'field_constituent_location_lid',
+      'gmap_macro' => '',
+    ),
     'dyfield' => array(
       'operator' => '=',
       'value' => NULL,
@@ -911,26 +944,26 @@ function crm_admin_views_default_views() {
       'expose' => array(
         'operator' => '',
         'identifier' => 'dyfield',
-        'label' => 'Fields',
+        'label' => 'Node: Dynamic Fields',
         'optional' => 1,
         'remember' => 0,
       ),
       'filterable_fields' => array(
-        'field_constituent_first_name_value' => 'field_constituent_first_name_value',
-        'field_constituent_last_name_value' => 'field_constituent_last_name_value',
-        'field_constituent_organization_nid' => 'field_constituent_organization_nid',
-        'field_constituent_email_email' => 'field_constituent_email_email',
-        'street' => 'street',
-        'city' => 'city',
-        'province' => 'province',
-        'postal_code' => 'postal_code',
-        'country' => 'country',
-        'field_constituent_phone_value' => 'field_constituent_phone_value',
-        'field_constituent_source_value' => 'field_constituent_source_value',
-        'field_constituent_reg_date_value' => 'field_constituent_reg_date_value',
-        'field_participant_status_value' => 'field_participant_status_value',
-        'field_facilitator_certification_value' => 'field_facilitator_certification_value',
-        'field_participant_phases_value' => 'field_participant_phases_value',
+        'field_constituent_first_name_value' => 0,
+        'field_constituent_last_name_value' => 0,
+        'field_constituent_email_email' => 0,
+        'field_constituent_phone_value' => 0,
+        'street' => 0,
+        'city' => 0,
+        'province' => 0,
+        'postal_code' => 0,
+        'country' => 0,
+        'field_constituent_organization_nid' => 0,
+        'field_constituent_source_value' => 0,
+        'field_constituent_reg_date_value' => 0,
+        'field_participant_status_value' => 0,
+        'field_facilitator_certification_value' => 0,
+        'field_participant_phases_value' => 0,
         'view_node' => 0,
       ),
       'reverse' => 0,
@@ -938,49 +971,16 @@ function crm_admin_views_default_views() {
       'id' => 'dyfield',
       'table' => 'node',
       'field' => 'dyfield',
+      'filterable_fields_excluded' => array(
+        'coordinates' => 0,
+        'distance' => 0,
+      ),
       'relationship' => 'none',
-    ),
-    'postal_code' => array(
-      'operator' => 'contains',
-      'value' => '',
-      'group' => '0',
-      'exposed' => TRUE,
-      'expose' => array(
-        'use_operator' => 0,
-        'operator' => 'postal_code_op',
-        'identifier' => 'postal_code',
-        'label' => 'Zip Code',
-        'optional' => 1,
-        'remember' => 0,
-      ),
-      'case' => 1,
-      'id' => 'postal_code',
-      'table' => 'location',
-      'field' => 'postal_code',
-      'relationship' => 'field_constituent_location_lid',
-    ),
-    'province' => array(
-      'operator' => 'is',
-      'value' => '',
-      'group' => '0',
-      'exposed' => TRUE,
-      'expose' => array(
-        'use_operator' => 0,
-        'operator' => 'province_op',
-        'identifier' => 'province',
-        'label' => 'State/province',
-        'optional' => 1,
-        'single' => 0,
-        'remember' => 0,
-      ),
-      'id' => 'province',
-      'table' => 'location',
-      'field' => 'province',
-      'relationship' => 'field_constituent_location_lid',
     ),
   ));
   $handler->override_option('access', array(
-    'type' => 'none',
+    'type' => 'perm',
+    'perm' => 'access crm',
   ));
   $handler->override_option('cache', array(
     'type' => 'none',
@@ -988,32 +988,105 @@ function crm_admin_views_default_views() {
   $handler->override_option('title', 'Constituent Reports');
   $handler->override_option('empty', 'No matching constituents were found');
   $handler->override_option('empty_format', '2');
+  $handler->override_option('items_per_page', 100);
+  $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'bulk');
   $handler->override_option('style_options', array(
     'grouping' => '',
     'override' => 1,
-    'sticky' => 0,
+    'sticky' => 1,
     'order' => 'asc',
     'columns' => array(
       'field_constituent_first_name_value' => 'field_constituent_first_name_value',
       'field_constituent_last_name_value' => 'field_constituent_last_name_value',
+      'field_constituent_organization_nid' => 'field_constituent_organization_nid',
+      'field_constituent_email_email' => 'field_constituent_email_email',
+      'street' => 'street',
+      'city' => 'city',
+      'province' => 'province',
+      'postal_code' => 'postal_code',
+      'country' => 'country',
       'field_constituent_phone_value' => 'field_constituent_phone_value',
+      'field_constituent_source_value' => 'field_constituent_source_value',
+      'field_constituent_reg_date_value' => 'field_constituent_reg_date_value',
+      'view_node' => 'view_node',
+      'field_participant_status_value' => 'field_participant_status_value',
+      'field_facilitator_certification_value' => 'field_facilitator_certification_value',
+      'field_participant_phases_value' => 'field_participant_phases_value',
+      'coordinates' => 'coordinates',
+      'distance' => 'distance',
     ),
     'info' => array(
       'field_constituent_first_name_value' => array(
-        'sortable' => 0,
+        'sortable' => 1,
         'separator' => '',
       ),
       'field_constituent_last_name_value' => array(
-        'sortable' => 0,
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_constituent_organization_nid' => array(
+        'separator' => '',
+      ),
+      'field_constituent_email_email' => array(
+        'separator' => '',
+      ),
+      'street' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'city' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'province' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'postal_code' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'country' => array(
+        'sortable' => 1,
         'separator' => '',
       ),
       'field_constituent_phone_value' => array(
         'separator' => '',
       ),
+      'field_constituent_source_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_constituent_reg_date_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'view_node' => array(
+        'separator' => '',
+      ),
+      'field_participant_status_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_facilitator_certification_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_participant_phases_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'coordinates' => array(
+        'separator' => '',
+      ),
+      'distance' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
     ),
     'default' => '-1',
-    'execution_type' => '1',
+    'execution_type' => '2',
     'display_type' => '0',
     'hide_select_all' => 0,
     'skip_confirmation' => 0,
@@ -1023,6 +1096,7 @@ function crm_admin_views_default_views() {
       'views_bulk_operations_delete_node_action' => 'views_bulk_operations_delete_node_action',
       'views_bulk_operations_fields_action' => 'views_bulk_operations_fields_action',
       'node_save_action' => 'node_save_action',
+      'views_send_mail_action' => 'views_send_mail_action',
       'node_assign_owner_action' => 0,
       'node_mass_update:a27b9efabcd054685a549378b174ad11' => 0,
       'system_message_action' => 0,
@@ -1030,6 +1104,7 @@ function crm_admin_views_default_views() {
       'views_bulk_operations_ruleset_action_rules_set_1' => 0,
       'views_bulk_operations_action' => 0,
       'views_bulk_operations_script_action' => 0,
+      'tuj_update_group_facilitator' => 0,
       'node_make_sticky_action' => 0,
       'node_make_unsticky_action' => 0,
       'node_mass_update:c4d3b28efb86fd703619a50b74d43794' => 0,
@@ -1065,18 +1140,15 @@ function crm_admin_views_default_views() {
         'field_organization_contact' => 'field_organization_contact',
         'field_participant_status' => 'field_participant_status',
         'field_participant_phases' => 'field_participant_phases',
+        'field_featured_image' => 'field_featured_image',
         'field_image_cache' => 'field_image_cache',
         'field_products_related' => 'field_products_related',
-        'field_featured_image' => 'field_featured_image',
         'field_constituent_first_name' => 'field_constituent_first_name',
         'field_constituent_last_name' => 'field_constituent_last_name',
         'field_constituent_organization' => 'field_constituent_organization',
         'field_constituent_email' => 'field_constituent_email',
-        'field_constituent_email_type' => 'field_constituent_email_type',
         'field_constituent_location' => 'field_constituent_location',
-        'field_constituent_address_type' => 'field_constituent_address_type',
         'field_constituent_phone' => 'field_constituent_phone',
-        'field_constituent_phone_type' => 'field_constituent_phone_type',
         'field_constituent_source' => 'field_constituent_source',
         'field_constituent_reg_date' => 'field_constituent_reg_date',
         'field_constituent_account' => 'field_constituent_account',
@@ -1086,6 +1158,7 @@ function crm_admin_views_default_views() {
     ),
   ));
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->override_option('items_per_page', 0);
   $handler->override_option('style_plugin', 'views_xls');
   $handler->override_option('style_options', array(
     'mission_description' => FALSE,
@@ -1096,7 +1169,7 @@ function crm_admin_views_default_views() {
     'parent_sort' => 0,
   ));
   $handler->override_option('row_plugin', '');
-  $handler->override_option('path', 'admin/crm/reports/xls');
+  $handler->override_option('path', 'admin/crm/reports/constituent/xls');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',
@@ -1120,7 +1193,7 @@ function crm_admin_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'admin/crm/reports/constituent');
   $handler->override_option('menu', array(
-    'type' => 'normal',
+    'type' => 'none',
     'title' => 'Constituent Reports',
     'description' => '',
     'weight' => '0',
@@ -1133,6 +1206,34 @@ function crm_admin_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('feed', 'Feed', 'feed_2');
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('style_plugin', 'views_csv');
+  $handler->override_option('style_options', array(
+    'mission_description' => FALSE,
+    'description' => '',
+  ));
+  $handler->override_option('row_plugin', '');
+  $handler->override_option('path', 'admin/crm/reports/constituent/csv');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('displays', array(
+    'default' => 'default',
+    'page_1' => 'page_1',
+  ));
+  $handler->override_option('sitename_title', FALSE);
 
   $views[$view->name] = $view;
 

@@ -10,16 +10,10 @@
  * Implementation of hook_views_data()
  */
 function crm_constituent_views_data_alter(&$data) {
-//  $data['crm_type_constituent']['table']['join'] = array(
-//
-//  );
-
-
-
-  $data['uc_orders']['constituent'] = array(
+  $data['users']['constituent'] = array(
     'group' => t('Constituent'),
     'title' => t('Associated Constituent'),
-    'help' => t('Connect an order to an associated constituent.'),
+    'help' => t('Connect a user to an associated constituent record.'),
     'relationship' => array(
       'handler' => 'crm_constituent_handler_order',
       'label' => t('constituent'),
@@ -27,7 +21,6 @@ function crm_constituent_views_data_alter(&$data) {
     ),
   );
   $data['content_type_constituent']['table']['join'] = array(
-    // vocabulary links to node through term_data via vid
     'node' => array(
       'left_field' => 'vid',
       'field' => 'vid',
@@ -36,7 +29,7 @@ function crm_constituent_views_data_alter(&$data) {
   $data['content_type_constituent']['constituent_node'] = array(
     'group' => t('Constituent'),
     'title' => t('Associated Constituent node data'),
-    'help' => t('Connect an order to an associated constituent node.'),
+    'help' => t('Connect a constituent record to a constituent node.'),
     'relationship' => array(
       'handler' => 'crm_constituent_handler_node',
       'label' => t('constituent node'),

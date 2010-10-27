@@ -16,7 +16,7 @@ class crm_constituent_handler_node extends views_handler_relationship  {
     $def['table'] = 'node';
 
     $this->query->add_table('node', $this->relationship);
-    $def['left_table'] = 'content_type_constituent_uc_orders';
+    $def['left_table'] = 'content_type_constituent_users';
     $def['left_field'] = 'vid';
     $def['field'] = 'vid';
     if (!empty($this->options['required'])) {

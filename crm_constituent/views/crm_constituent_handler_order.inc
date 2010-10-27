@@ -16,7 +16,7 @@ class crm_constituent_handler_order extends views_handler_relationship  {
     $def['table'] = 'content_type_constituent';
 
     $this->query->add_table('content_type_constituent', $this->relationship);
-    $def['left_table'] = 'uc_orders';
+    $def['left_table'] = 'users';
     $def['left_field'] = 'uid';
     $def['field'] = 'field_constituent_account_uid';
     if (!empty($this->options['required'])) {
