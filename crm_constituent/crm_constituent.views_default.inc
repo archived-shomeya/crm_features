@@ -902,7 +902,7 @@ function crm_constituent_views_default_views() {
   $handler->override_option('relationships', array(
     'constituent' => array(
       'id' => 'constituent',
-      'table' => 'uc_orders',
+      'table' => 'users',
       'field' => 'constituent',
     ),
     'constituent_node' => array(
