@@ -11,6 +11,7 @@ function crm_admin_strongarm() {
   $strongarm->name = 'views_savedsearches';
   $strongarm->value = array(
     'constituent_report_basic' => 'constituent_report_basic',
+    'transaction_report_basic' => 'transaction_report_basic',
     'frontpage' => 0,
     'product_list_block' => 0,
     'store_search' => 0,
@@ -19,6 +20,9 @@ function crm_admin_strongarm() {
     'product_featured_item_image' => 0,
     'related_products' => 0,
     'events' => 0,
+    'saved_reports' => 0,
+    'facilitators' => 0,
+    'constituent_orders' => 0,
     'comments_recent' => 0,
     'tracker' => 0,
     'glossary' => 0,
@@ -43,7 +47,6 @@ function crm_admin_strongarm() {
     'constituent_facilitator' => 0,
     'constituent_map' => 0,
     'constituent_notes' => 0,
-    'constituent_orders' => 0,
     'constituent_participant' => 0,
     'recent_constituents' => 0,
     'search_constituents_basic' => 0,
