@@ -453,7 +453,7 @@ print l(t(\'Add note\'), \'node/add/notes\', array(\'query\' => "edit[field_cons
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'block',
+      'style' => 'default',
     );
     $pane->css = array();
     $pane->extras = array();
