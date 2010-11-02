@@ -136,7 +136,7 @@ work',
       ),
       'default_value_php' => NULL,
       'label' => 'Drupal account',
-      'weight' => '41',
+      'weight' => '44',
       'description' => '',
       'type' => 'userreference_autocomplete',
       'module' => 'userreference',
@@ -201,6 +201,131 @@ work',
       'description' => '',
       'type' => 'email_textfield',
       'module' => 'email',
+    ),
+  );
+
+  // Exported field: field_constituent_f_phase_cert
+  $fields['constituent-field_constituent_f_phase_cert'] = array(
+    'field_name' => 'field_constituent_f_phase_cert',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '1|Phase 1
+2|Phase 2
+3|Phase 3',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Phase certification',
+      'weight' => '52',
+      'description' => '',
+      'type' => 'optionwidgets_buttons',
+      'module' => 'optionwidgets',
+    ),
+  );
+
+  // Exported field: field_constituent_facilitator
+  $fields['constituent-field_constituent_facilitator'] = array(
+    'field_name' => 'field_constituent_facilitator',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '0
+1|Constituent is a facilitator',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => NULL,
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Facilitator',
+      'weight' => '42',
+      'description' => '',
+      'type' => 'optionwidgets_onoff',
+      'module' => 'optionwidgets',
     ),
   );
 
@@ -793,6 +918,196 @@ work',
     ),
   );
 
+  // Exported field: field_constituent_p_phases
+  $fields['constituent-field_constituent_p_phases'] = array(
+    'field_name' => 'field_constituent_p_phases',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '1|Phase 1
+2|Phase 2
+3|Phase 3',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => NULL,
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Phases completed',
+      'weight' => '43',
+      'description' => '',
+      'type' => 'optionwidgets_buttons',
+      'module' => 'optionwidgets',
+    ),
+  );
+
+  // Exported field: field_constituent_p_status
+  $fields['constituent-field_constituent_p_status'] = array(
+    'field_name' => 'field_constituent_p_status',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '0|Prospect
+1|Active
+2|Inactive
+3|Alumni
+',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Status',
+      'weight' => '42',
+      'description' => '',
+      'type' => 'optionwidgets_select',
+      'module' => 'optionwidgets',
+    ),
+  );
+
+  // Exported field: field_constituent_participant
+  $fields['constituent-field_constituent_participant'] = array(
+    'field_name' => 'field_constituent_participant',
+    'type_name' => 'constituent',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '0|
+1|Constituent is a participant',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => NULL,
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Participant',
+      'weight' => '40',
+      'description' => '',
+      'type' => 'optionwidgets_onoff',
+      'module' => 'optionwidgets',
+    ),
+  );
+
   // Exported field: field_constituent_phone
   $fields['constituent-field_constituent_phone'] = array(
     'field_name' => 'field_constituent_phone',
@@ -926,7 +1241,7 @@ work',
       'year_range' => '-3:+3',
       'label_position' => 'above',
       'label' => 'Registration date',
-      'weight' => '40',
+      'weight' => '39',
       'description' => '',
       'type' => 'date_popup',
       'module' => 'date',
@@ -997,7 +1312,7 @@ work',
       ),
       'default_value_php' => NULL,
       'label' => 'Source',
-      'weight' => '39',
+      'weight' => '38',
       'description' => 'How did you hear about The Ultimate Journey?',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -1062,7 +1377,7 @@ work',
       'default_value' => NULL,
       'default_value_php' => NULL,
       'label' => 'Additional tags',
-      'weight' => '42',
+      'weight' => '45',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
@@ -1199,12 +1514,17 @@ pager',
   t('Address');
   t('Drupal account');
   t('E-mail');
+  t('Facilitator');
   t('First name');
   t('Last name');
   t('Organization');
+  t('Participant');
+  t('Phase certification');
+  t('Phases completed');
   t('Phone');
   t('Registration date');
   t('Source');
+  t('Status');
 
   return $fields;
 }

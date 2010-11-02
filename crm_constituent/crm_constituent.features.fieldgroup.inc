@@ -136,6 +136,105 @@ function crm_constituent_fieldgroup_default_groups() {
     ),
   );
 
+  // Exported group: group_facilitator_info
+  $groups['constituent-group_facilitator_info'] = array(
+    'group_type' => 'standard',
+    'type_name' => 'constituent',
+    'group_name' => 'group_facilitator_info',
+    'label' => 'Facilitator info',
+    'settings' => array(
+      'form' => array(
+        'style' => 'fieldset',
+        'description' => '',
+      ),
+      'display' => array(
+        'description' => '',
+        'teaser' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '4' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '2' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '3' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'token' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'label' => 'above',
+      ),
+      'multigroup' => array(
+        'default-order' => 0,
+      ),
+    ),
+    'weight' => '43',
+    'fields' => array(
+      '0' => 'field_constituent_f_phase_cert',
+    ),
+  );
+
+  // Exported group: group_participant_info
+  $groups['constituent-group_participant_info'] = array(
+    'group_type' => 'standard',
+    'type_name' => 'constituent',
+    'group_name' => 'group_participant_info',
+    'label' => 'Participant info',
+    'settings' => array(
+      'form' => array(
+        'style' => 'fieldset',
+        'description' => '',
+      ),
+      'display' => array(
+        'description' => '',
+        'teaser' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '4' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '2' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        '3' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'token' => array(
+          'format' => 'fieldset',
+          'exclude' => 0,
+        ),
+        'label' => 'above',
+      ),
+      'multigroup' => array(
+        'default-order' => 0,
+      ),
+    ),
+    'weight' => '41',
+    'fields' => array(
+      '0' => 'field_constituent_p_status',
+      '1' => 'field_constituent_p_phases',
+    ),
+  );
+
   // Exported group: group_phone
   $groups['constituent-group_phone'] = array(
     'group_type' => 'multigroup',
@@ -205,6 +304,8 @@ function crm_constituent_fieldgroup_default_groups() {
   // Included for use with string extractors like potx.
   t('Address');
   t('Email');
+  t('Facilitator info');
+  t('Participant info');
   t('Phone');
 
   return $groups;

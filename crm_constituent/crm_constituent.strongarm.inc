@@ -94,13 +94,13 @@ function crm_constituent_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'content_extra_weights_constituent';
   $strongarm->value = array(
-    'title' => '43',
-    'revision_information' => '46',
-    'author' => '45',
-    'options' => '47',
+    'title' => '46',
+    'revision_information' => '49',
+    'author' => '48',
+    'options' => '50',
     'comment_settings' => '30',
-    'menu' => '44',
-    'path' => '48',
+    'menu' => '47',
+    'path' => '51',
     'attachments' => '31',
   );
 
