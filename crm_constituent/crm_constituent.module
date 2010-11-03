@@ -79,12 +79,6 @@ function crm_constituent_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
         if (module_exists('crm_notes')) {
           $nids = array_merge(crm_notes_load_notes($node->nid), $nids);
         }
-        if (module_exists('crm_participant')) {
-          $nids = array_merge(crm_participant_load_records($node->nid), $nids);
-        }
-        if (module_exists('crm_facilitator')) {
-          $nids = array_merge(crm_facilitator_load_records($node->nid), $nids);
-        }
         foreach ($nids as $nid) {
           node_delete($nid);
         }
@@ -101,3 +95,4 @@ function crm_constituent_form_alter(&$form, &$form_state, $form_id) {
     drupal_add_css(drupal_get_path('module', 'crm_constituent') .'/crm_constituent_node_form.css', 'theme');
   }
 }
+
