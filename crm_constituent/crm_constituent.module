@@ -96,3 +96,68 @@ function crm_constituent_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+/**
+ * Implementation of hook_order().
+ */
+function crm_constituent_order($op, &$arg1, $arg2) {
+  switch ($op) {
+    case 'submit':
+      if ($record = crm_constituent_load($arg1->uid)) {
+
+      }
+      else {
+        // No record exists, create one
+        $account = user_load($arg1->uid);
+        $edit = array();
+        crm_constituent_user('insert', $edit, $account);
+      }
+
+      $record = crm_constituent_load($arg1->uid);
+
+      ///////////// HANDLE ADDRESS /////////////////////////
+
+      // Loop over all the constituents addresses
+      $import = TRUE;
+      foreach ($record->field_constituent_location as $value) {
+        // If no record exists, then import
+        if (isset($value['lid']) && $value['lid'] == NULL) {
+          continue;
+        } else { // Record exists, lets check if it matches the billing info
+          if (($value['street'] == $arg1->billing_street1) &&
+              ($value['additional'] == $arg1->billing_street2) &&
+              ($value['city'] == $arg1->billing_city) &&
+              ($value['postal_code'] == $arg1->billing_postal_code)) {
+            // It matches an existing address, don't import
+            $import = FALSE;
+          }
+        }
+      }
+
+
+      if ($import) {
+        $state_code = db_result(db_query("SELECT zone_code FROM {uc_zones} WHERE zone_id = %d", $arg1->billing_zone));
+        $location = array(
+          'street' => $arg1->billing_street1,
+          'additional' => $arg1->billing_street2,
+          'city' => $arg1->billing_city,
+          'province' => $state_code,
+          'postal_code' => $arg1->billing_postal_code,
+        );
+        $lid = location_save($location);
+        $record->field_constituent_location[]['lid'] = $lid;
+      }
+
+      /////// HANDLE PHONE ///////////////////////
+
+      // Only update if empty
+      // @TODO, fix this to iterate over known phone numbers, but need to strip out punctuation of incoming number
+      if ($record->field_constituent_phone[0]['value'] == NULL) {
+        $record->field_constituent_phone[0]['value'] = $arg1->billing_phone;
+      }
+      
+      node_save($record);
+
+      return array();
+      break;
+  }
+}
